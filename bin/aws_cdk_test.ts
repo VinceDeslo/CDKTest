@@ -1,11 +1,9 @@
 #!/usr/bin/env node
-import 'source-map-support/register';
-import * as cdk from 'aws-cdk-lib';
-import { AwsCdkTestStack } from '../lib/aws_cdk_test-stack';
+import { App } from '@aws-cdk/core';
 
 import { environment } from '../lib/utils/environment';
+import { LambdaStack } from '../lib/lambda-stack';
 
-const app = new cdk.App();
+const app = new App();
 
-new AwsCdkTestStack(app, 'AwsCdkTestStack', { env: environment });
-
+new LambdaStack(app, 'LambdaFunctionStack', {env: environment});
